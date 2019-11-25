@@ -27,10 +27,6 @@ public class Convex
     {
         return fig;
     }
-    public int pair(Triangle t)
-    {
-        return fig.pair(t);
-    }
     public int newPair(Triangle t)
     {
         return fig.newPair(t);

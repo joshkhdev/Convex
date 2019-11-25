@@ -1,6 +1,4 @@
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 public class ConvexTest
 {
     public static void main(String[] args) throws Exception
@@ -33,7 +31,7 @@ public class ConvexTest
             {
                 break;
             }
-            System.out.println("S = " + convex.area() + ", P = " + convex.perimeter() + ", OldPairs = " + convex.pair(triangle) + ", NewPairs = " + convex.newPair(triangle));
+            System.out.println("S = " + convex.area() + ", P = " + convex.perimeter() + ", NewPairs = " + convex.newPair(triangle));
         }
         Window window = new Window(triangle, convex);
     }

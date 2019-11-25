@@ -24,10 +24,6 @@ public class Point implements Figure
     {
         g.drawOval(p.getX(), p.getY(), 1,1);
     }
-    public int pair(Triangle t)
-    {
-        return 0;
-    }
     public int newPair(Triangle t)
     {
         return 0;

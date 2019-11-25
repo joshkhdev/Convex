@@ -10,8 +10,8 @@ public class R2Point
     public R2Point() throws Exception
     {
         Scanner sc = new Scanner(System.in);
-        x = sc.nextInt();
-        y = sc.nextInt();
+        x = sc.nextDouble();
+        y = sc.nextDouble();
     }
     public static double dist(R2Point a, R2Point b)
     {
@@ -52,5 +52,4 @@ public class R2Point
         this.x = x;
         this.y = y;
     }
-
 }

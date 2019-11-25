@@ -28,5 +28,4 @@ public class Window extends JFrame
         t.draw(g);
         c.draw(g);
     }
-
 }

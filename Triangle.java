@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Triangle {
-    private static Polygon t;
+    public static Polygon t;
     public static Vector v1, v2, v3;
     public static int pairs = 0;
     public Triangle(R2Point a, R2Point b, R2Point c)
