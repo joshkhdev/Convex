@@ -1,28 +1,34 @@
 public class Vector
 {
-    private R2Point p;
+    private double x, y;
     public Vector()
     {
-        p = new R2Point(0,0);
+        x = 0; y = 0;
     }
     public Vector(R2Point p0, R2Point p1)
     {
-        p = new R2Point((p1.getX() - p0.getX()),(p1.getY() - p0.getY()));
+        x = p1.getX() - p0.getX();
+        y = p1.getY() - p0.getY();
     }
-    public R2Point getPoint()
+    public double getX()
     {
-        return p;
+        return x;
+    }
+    public double getY()
+    {
+        return y;
     }
     public void change(R2Point p0, R2Point p1)
     {
-        p.setPoint(p1.getX() - p0.getX(), p1.getY() - p0.getY());
+        x = p1.getX() - p0.getX();
+        y = p1.getY() - p0.getY();
     }
-    public double lenght()
+    public double length()
     {
-        return Math.sqrt(p.getX()*p.getX() + p.getY()*p.getY());
+        return Math.sqrt(x*x + y*y);
     }
     public static double cos(Vector v1, Vector v2)
     {
-        return ((v1.getPoint().getX()*v2.getPoint().getX() + v1.getPoint().getY()*v2.getPoint().getY()) / (v1.lenght()*v2.lenght()));
+        return ((v1.getX()*v2.getX() + v1.getY()*v2.getY()) / (v1.length()*v2.length()));
     }
 }

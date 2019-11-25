@@ -33,7 +33,7 @@ public class ConvexTest
             {
                 break;
             }
-            System.out.println("S = " + convex.area() + ", P = " + convex.perimeter() + ", Pairs = " + triangle.pair(convex));
+            System.out.println("S = " + convex.area() + ", P = " + convex.perimeter() + ", OldPairs = " + convex.pair(triangle) + ", NewPairs = " + convex.newPair(triangle));
         }
         Window window = new Window(triangle, convex);
     }

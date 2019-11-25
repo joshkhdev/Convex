@@ -18,5 +18,12 @@ public class Void implements Figure
     {
 
     }
-
+    public int pair(Triangle t)
+    {
+        return 0;
+    }
+    public int newPair(Triangle t)
+    {
+        return 0;
+    }
 }

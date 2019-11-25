@@ -44,13 +44,13 @@ public class Polygon extends Deq implements Figure
             grow(back(), front(), t);
         // Удаляем все освещенные ребра из начала дека.
             for (x = popFront(); t.light(x, front()); x = popFront())
-                grow(x, front(), t );
+                grow(x, front(), t);
             pushFront(x);
         // Удаляем все освещенные ребра из конца дека.
             for (x = popBack(); t.light(back(), x); x = popBack())
                 grow(back(), x, t);
             pushBack(x);
-// Завершаем обработку добавляемой точки.
+        // Завершаем обработку добавляемой точки.
             p += R2Point.dist(back(), t) + R2Point.dist(t, front());
             pushFront(t);
         }
@@ -58,71 +58,31 @@ public class Polygon extends Deq implements Figure
     }
     public void draw(Graphics2D g)
     {
-        R2Point first, second;
         for (int i=0; i < length(); i++)
         {
-            first = popFront();
-            second = popFront();
-            g.drawLine(first.getX(), first.getY(), second.getX(), second.getY());
-            pushBack(first);
-            pushFront(second);
+            g.drawLine(front().getX(), front().getY(), back().getX(), back().getY());
+            pushBack(popFront());
         }
     }
-    public int pair(Figure f)
-    {
-        return 0;
-    }
-    public int pair(Void v)
-    {
-        return 0;
-    }
-    public int pair(Point p)
-    {
-        return 0;
-    }
-    public int pair(Segment s)
-    {
-        int n = 0;
-        final Vector v1 = new Vector(s.first(), s.second());
-        Vector v2 = new Vector();
-        R2Point first, second;
-        for (int i = 0; i < length(); i++)
-        {
-            first = popFront();
-            second = popFront();
-            v2.change(first, second);
-            if ((Vector.cos(v1, v2) > 0.9999) || (Vector.cos(v1, v2) < -0.9999))
-                n++;
-            pushBack(first);
-            pushFront(second);
-        }
-        return n;
-    }
-    public int pair(Polygon p)
+    public int pair(Triangle t)
     {
         int n = 0;
         Vector v1 = new Vector();
-        Vector v2 = new Vector();
-        R2Point first, second;
-        R2Point Pfirst, Psecond;
-        for (int i = 0; i < p.length(); i++)
+        Vector v[] = new Vector[] { t.v1, t.v2, t.v3 };
+        for (int i = 0; i < length(); i++)
         {
-            Pfirst = p.popFront();
-            Psecond = p.popFront();
-            v1.change(Pfirst, Psecond);
-            for (int j = 0; j < length(); j++)
-            {
-                first = popFront();
-                second = popFront();
-                v2.change(first, second);
-                if ((Vector.cos(v1, v2) > 0.9999) || (Vector.cos(v1, v2) < -0.9999))
+            v1.change(front(), back());
+            for (int j = 0; j < 3; j++) {
+                if ((Vector.cos(v1, v[j]) > 0.9999) || (Vector.cos(v1, v[j]) < -0.9999)) {
                     n++;
-                pushBack(first);
-                pushFront(second);
+                }
             }
-            p.pushBack(Pfirst);
-            p.pushFront(Psecond);
+            pushBack(popFront());
         }
         return n;
+    }
+    public int newPair(Triangle t)
+    {
+        return Triangle.pairs;
     }
 }
