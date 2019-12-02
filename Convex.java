@@ -19,7 +19,7 @@ public class Convex
     {
         return fig.perimeter();
     }
-    public void draw(Graphics2D g)
+    public void draw(Graphics g)
     {
         fig.draw(g);
     }

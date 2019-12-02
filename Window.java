@@ -22,10 +22,17 @@ public class Window extends JFrame
         this.c = c;
     }
     @Override
-    public void paint(Graphics gr)
+    public void paint(Graphics g)
     {
-        Graphics2D g = (Graphics2D)gr;
+        g.setColor(Color.white);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setColor(Color.blue);
         t.draw(g);
+        g.setColor(Color.black);
         c.draw(g);
+    }
+    public void paint()
+    {
+        paint(getGraphics());
     }
 }

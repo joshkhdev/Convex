@@ -4,6 +4,6 @@ public interface Figure {
     public double perimeter();
     public double area();
     public Figure add(R2Point p);
-    public void draw(Graphics2D g);
+    public void draw(Graphics g);
     public int newPair(Triangle t);
 }

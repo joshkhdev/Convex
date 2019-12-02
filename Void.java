@@ -14,7 +14,7 @@ public class Void implements Figure
     {
         return new Point(p);
     }
-    public void draw(Graphics2D g)
+    public void draw(Graphics g)
     {
 
     }

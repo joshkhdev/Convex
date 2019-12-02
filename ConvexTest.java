@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 public class ConvexTest
 {
@@ -5,27 +6,30 @@ public class ConvexTest
     {
         int k = 0;
         Convex convex = new Convex();
-        ArrayList<R2Point> a = new ArrayList<R2Point>();
+        Triangle triangle = new Triangle();
+        Window window = new Window(triangle, convex);
         while (k < 3)
         {
             try
             {
                 System.out.println("Triangle: Enter point №" + (k+1) + ": ");
-                a.add(new R2Point());
+                triangle.add();
                 k++;
+                window.paint();
             }
             catch (Exception ex)
             {
+                System.out.println(ex);
                 break;
             }
         }
-        Triangle triangle = new Triangle(a.get(0), a.get(1), a.get(2));
         while (true)
         {
             try
             {
                 System.out.println("Convex: Enter a point: ");
                 convex.add(new R2Point());
+                window.paint();
             }
             catch (Exception ex)
             {
@@ -33,6 +37,5 @@ public class ConvexTest
             }
             System.out.println("S = " + convex.area() + ", P = " + convex.perimeter() + ", NewPairs = " + convex.newPair(triangle));
         }
-        Window window = new Window(triangle, convex);
     }
 }

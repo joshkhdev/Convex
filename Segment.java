@@ -33,7 +33,7 @@ public class Segment implements Figure
         if (p.inside(r, q)) p = r;
         return this;
     }
-    public void draw(Graphics2D g)
+    public void draw(Graphics g)
     {
         g.drawLine(p.getX(), p.getY(), q.getX(), q.getY());
     }

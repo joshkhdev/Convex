@@ -20,7 +20,7 @@ public class Point implements Figure
         if (!R2Point.equal(p,q)) return new Segment(p, q);
         else return this;
     }
-    public void draw(Graphics2D g)
+    public void draw(Graphics g)
     {
         g.drawOval(p.getX(), p.getY(), 1,1);
     }

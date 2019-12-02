@@ -109,7 +109,7 @@ public class Polygon extends Deq implements Figure
         }
         return this;
     }
-    public void draw(Graphics2D g)
+    public void draw(Graphics g)
     {
         for (int i=0; i < length(); i++)
         {
